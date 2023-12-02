@@ -1,7 +1,7 @@
 substitutions:
-  device_name: p1mini
-  device_password: !secret p1mini_password
-  device_api_key: !secret p1mini_api_key
+  device_name: p1meter
+  device_password: !secret p1meter_password
+  device_api_key: !secret p1meter_api_key
 
 esphome:
   name: ${device_name}
@@ -100,7 +100,7 @@ sensor:
   lambda: |-
     auto meter_sensor = new P1Reader(
       id(uart_bus),
-      id(p1_period),
+      nullptr,
       id(p1_cts),
       id(status_led),
       id(secondary_p1_rts)
